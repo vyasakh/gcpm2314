@@ -69,5 +69,14 @@ view: flights {
   }
   measure: count {
     type: count
+    drill_fields: [detail*]
+  }
+  measure: avg {
+    type: average
+    sql: ${flight_num} ;;
+    value_format_name: decimal_2
+  }
+  set: detail {
+    fields: [distance,arr_date,destination,origin,count]
   }
 }

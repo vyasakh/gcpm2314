@@ -2,6 +2,7 @@ connection: "thelook"
 
 # include all the views
 include: "/views/**/*.view.lkml"
+include: "/te.dashboard.lookml"
 
 datagroup: 0_vysakh_thelook_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
@@ -11,7 +12,7 @@ datagroup: 0_vysakh_thelook_default_datagroup {
 persist_with: 0_vysakh_thelook_default_datagroup
 
 
-
+explore: users {}
 explore: dept {}
 
 explore: employees {}
@@ -90,4 +91,4 @@ explore: salary {
 }
 
 
-explore: users {}
+# explore: users {}

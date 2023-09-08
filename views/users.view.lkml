@@ -49,23 +49,26 @@ view: users {
     type: zipcode
     sql: ${TABLE}.zip ;;
   }
+
   measure: count {
     type: count
     drill_fields: [detail*]
   }
 
+
+
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
-	id,
-	first_name,
-	last_name,
-	events.count,
-	orders.count,
-	saralooker.count,
-	sindhu.count,
-	user_data.count
-	]
+  id,
+  first_name,
+  last_name,
+  events.count,
+  orders.count,
+  saralooker.count,
+  sindhu.count,
+  user_data.count
+  ]
   }
 
 }

@@ -25,10 +25,32 @@ explore: events {
   }
 }
 
+explore: flight_der {
+  join: orders_der {
+   type: left_outer
+    sql_on: ${orders_der.id} = ${flight_der.id} ;;
+   relationship: many_to_one
+ }
+  join: users_der {
+    type: left_outer
+     sql_on: ${orders_der.id} = ${users_der.id} ;;
+    relationship: many_to_one
+  }
+}
 
-
+# explore: flights {
+#   join: orders {
+#     type: left_outer
+#     sql_on: ${orders.user_id} = ${flights.id2} ;;
+#     relationship: many_to_one
+#   }
+#   join: users {
+#     type: left_outer
+#     sql_on: ${orders.user_id} = ${users.id} ;;
+#     relationship: many_to_one
+#   }
+# }
 explore: flights {}
-
 explore: human {}
 
 
@@ -42,11 +64,7 @@ explore: inventory_items {
 }
 
 explore: orders {
-  join: users {
-    type: left_outer
-    sql_on: ${orders.user_id} = ${users.id} ;;
-    relationship: many_to_one
-  }
+
 }
 
 explore: order_items {

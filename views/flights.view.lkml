@@ -77,6 +77,36 @@ view: flights {
     sql: ${flight_num} ;;
     value_format_name: decimal_2
   }
+  dimension: t1 {
+    type: string
+    sql: "Text works ......... starts here:-" ;;
+  }
+  dimension: t3 {
+    type: string
+    sql: "Sub1:" ;;
+  }
+
+  dimension: t2 {
+    type: string
+    sql: "point1 point1point1 point1point1 point1point1point1point1point1point1point1point1 point1point1 point1" ;;
+  }
+  dimension: t4 {
+    type: string
+    sql: "point2 point2point2 point2point2 point2point2point2point2point2point2point2point2 point2point point2" ;;
+  }
+  dimension: t5 {
+    type: string
+    sql: "The works ends here" ;;
+  }
+
+  dimension: text {
+    type: string
+    sql: ${t1} ;;
+    html: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{t1._value}}
+         <ul><li><b>{{t3._value}}</b>{{t2._value}}</li>
+          <li><b>Sub 2:</b>{{t4._value}}</li></ul>
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{t5._value}};;
+  }
   set: detail {
     fields: [distance,arr_date,destination,origin,count]
   }

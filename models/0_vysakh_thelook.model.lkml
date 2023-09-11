@@ -37,6 +37,9 @@ explore: flight_der {
     relationship: many_to_one
   }
 }
+explore:users_der {
+
+}
 
 # explore: flights {
 #   join: orders {

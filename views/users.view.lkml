@@ -54,8 +54,28 @@ view: users {
     type: count
     drill_fields: [detail*]
   }
+  dimension: ticket_sign {
+    hidden: yes
+    type: number
+    sql: CASE
+      WHEN ${country} = 'USA' AND ${state} LIKE 'Alaba%' THEN 1
+      WHEN ${state} = 'lowa' AND ${id}=10 THEN -1
+      ELSE 0
+      END ;;
+  }
 
-
+  dimension: if_holds {
+    #hidden:  yes
+    type: yesno
+    sql: ${state} = 'Alaska' ;;
+  }
+  measure: ticket_holds {
+    type: sum
+    sql:CASE
+      WHEN ${users.if_holds} THEN ${ticket_sign}
+      ELSE 0
+      END ;;
+  }
 
   # ----- Sets of fields for drilling ------
   set: detail {

@@ -17,4 +17,5 @@ view: users_der {
     type: yesno
     sql: ${state} = 'Alaska' ;;
   }
+
 }

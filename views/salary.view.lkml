@@ -2,15 +2,15 @@ view: salary {
   sql_table_name: demo_db.Salary ;;
 
 
-  parameter: param {
+  parameter: select {
     type: unquoted
-    default_value: "see below"
+
     allowed_value: {
-      value: "point 1"
+      value: "point1"
       label: "p1"
     }
     allowed_value: {
-      value: "point 2"
+      value: "point2"
       label: "p2"
     }
   }
@@ -24,8 +24,14 @@ view: salary {
     sql: ${TABLE}.Salary ;;
   }
   dimension: set {
-    type: string
-    sql: ${param} ;;
+
+    sql: {% if select._parameter_value == 'point1' %}
+      ${salary}/2
+    {% elsif select._parameter_value == 'point2' %}
+      ${salary}/1
+    {% else %}
+      ${salary}
+    {% endif %};;
   }
   measure: count {
     type: count

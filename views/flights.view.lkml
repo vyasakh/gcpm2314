@@ -71,6 +71,7 @@ view: flights {
     type: count
     drill_fields: [detail*]
   }
+
   measure: avg {
     type: average
     sql: ${flight_num} ;;

@@ -26,7 +26,15 @@ view: orders {
     drill_fields: [detail*]
   }
 
+  measure: ticket_holds {
+    type: sum_distinct
+    sql_distinct_key: ${id} ;;
 
+    sql:CASE
+      WHEN ${users.if_holds} THEN ${id}
+      ELSE 0
+      END ;;
+  }
 
   # ----- Sets of fields for drilling ------
   set: detail {

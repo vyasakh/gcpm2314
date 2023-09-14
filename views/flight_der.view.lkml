@@ -6,5 +6,6 @@ view: flight_der {
   dimension: id {
     type: number
     sql: ${TABLE}.id ;;
+    primary_key: yes
   }
 }

@@ -10,6 +10,7 @@ view: orders_der {
   }
   measure: ticket_holds {
     type: sum
+
     sql:CASE
       WHEN ${users_der.if_holds} THEN ${id}
       ELSE 0

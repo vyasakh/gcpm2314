@@ -11,7 +11,14 @@ datagroup: 0_vysakh_thelook_default_datagroup {
 
 # persist_with: 0_vysakh_thelook_default_datagroup
 
-
+access_grant: testing {
+  user_attribute: test1
+  allowed_values: ["see"]
+}
+access_grant: testing2 {
+  user_attribute: test2
+  allowed_values: ["see"]
+}
 
 explore: users {}
 explore: dept {}
@@ -42,19 +49,21 @@ explore:users_der {
 
 }
 
-# explore: flights {
-#   join: orders {
-#     type: left_outer
-#     sql_on: ${orders.user_id} = ${flights.id2} ;;
-#     relationship: many_to_one
-#   }
-#   join: users {
-#     type: left_outer
-#     sql_on: ${orders.user_id} = ${users.id} ;;
-#     relationship: many_to_one
-#   }
-# }
-explore: flights {}
+explore: fligh_dupe {
+  from: flights
+  view_name: flights
+  join: orders {
+    type: left_outer
+    sql_on: ${orders.user_id} = ${flights.id2} ;;
+    relationship: many_to_one
+  }
+  join: users {
+    type: left_outer
+    sql_on: ${orders.user_id} = ${users.id} ;;
+    relationship: many_to_one
+  }
+}
+
 explore: human {}
 
 
@@ -68,7 +77,11 @@ explore: inventory_items {
 }
 
 explore: orders {
-
+  join: users {
+    type: left_outer
+    sql_on: ${orders.user_id} = ${users.id} ;;
+    relationship: many_to_one
+  }
 }
 
 explore: order_items {

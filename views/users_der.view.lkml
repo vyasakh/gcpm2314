@@ -14,6 +14,7 @@ view: users_der {
   }
   dimension: if_holds {
     #hidden:  yes
+
     type: yesno
     sql: ${state} = 'Alaska' ;;
   }

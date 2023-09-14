@@ -23,6 +23,7 @@ view: order_items {
     sql: ${TABLE}.phone ;;
   }
   dimension: phones {
+    required_access_grants: [testing2]
     type: string
     sql: ${TABLE}.phones ;;
   }

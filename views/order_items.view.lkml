@@ -37,8 +37,9 @@ view: order_items {
     type: number
     sql: ${TABLE}.sale_price ;;
   }
-  dimension: dee {
-    sql: ${id}/2 ;;
+
+  dimension: dee2 {
+    sql: ${id}+2 ;;
     required_access_grants: [testing]
   }
   measure: count {

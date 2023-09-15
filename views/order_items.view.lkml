@@ -18,12 +18,12 @@ view: order_items {
     sql: ${TABLE}.order_id ;;
   }
   dimension: phone {
-    required_access_grants: [testing]
+    required_access_grants: [drishya]
     type: string
     sql: ${TABLE}.phone ;;
   }
   dimension: phones {
-    required_access_grants: [testing2]
+    required_access_grants: [ragha]
     type: string
     sql: ${TABLE}.phones ;;
   }
@@ -33,14 +33,14 @@ view: order_items {
     sql: ${TABLE}.returned_at ;;
   }
   dimension: sale_price {
-    required_access_grants: [testing2]
+    required_access_grants: [ragha]
     type: number
     sql: ${TABLE}.sale_price ;;
   }
 
   dimension: dee2 {
     sql: ${id}+2 ;;
-    required_access_grants: [testing]
+    required_access_grants: [drishya]
   }
   measure: count {
     type: count

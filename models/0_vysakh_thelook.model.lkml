@@ -11,11 +11,11 @@ datagroup: 0_vysakh_thelook_default_datagroup {
 
 # persist_with: 0_vysakh_thelook_default_datagroup
 
-access_grant: testing {
+access_grant: drishya {
   user_attribute: test1
   allowed_values: ["see"]
 }
-access_grant: testing2 {
+access_grant: ragha {
   user_attribute: test2
   allowed_values: ["see"]
 }

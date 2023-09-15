@@ -8,7 +8,7 @@ datagroup: 0_vysakh_thelook_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
 }
-
+explore: geolite_city_location {}
 # persist_with: 0_vysakh_thelook_default_datagroup
 
 access_grant: drishya {

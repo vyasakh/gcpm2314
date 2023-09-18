@@ -20,6 +20,32 @@ view: users {
     map_layer_name: countries
     sql: ${TABLE}.country ;;
   }
+
+  dimension: countylo {
+
+    type: string
+    map_layer_name: us_counties_fips
+    sql: ${city} ;;
+  }
+
+  dimension: statelo {
+
+    type: string
+    map_layer_name: us_states
+    sql: ${state} ;;
+  }
+
+  dimension: citylo {
+
+    type: string
+    map_layer_name: us_counties_fips
+    sql: ${zip} ;;
+  }
+  measure: ageavg {
+    type: average
+    sql: ${age} ;;
+  }
+
   dimension_group: created {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]

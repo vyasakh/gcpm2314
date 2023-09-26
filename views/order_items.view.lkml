@@ -38,10 +38,10 @@ view: order_items {
     sql: ${TABLE}.sale_price ;;
   }
 
-  # dimension: dee2 {
-  #   sql: ${id}+2 ;;
-  #   required_access_grants: [drishya]
-  # }
+  dimension: dee2 {
+    sql: ${id}+2 ;;
+    required_access_grants: [drishya]
+  }
   measure: count {
     type: count
     drill_fields: [id, orders.id, inventory_items.id]

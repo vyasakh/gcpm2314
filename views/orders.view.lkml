@@ -25,7 +25,7 @@ view: orders {
   measure: count {
     type: count
     value_format: "$0.00"
-    drill_fields: [detail*]
+    drill_fields: [drill_issue*]
   }
 
   measure: ticket_holds {
@@ -37,7 +37,9 @@ view: orders {
       ELSE 0
       END ;;
   }
-
+  set: drill_issue {
+    fields: [id, status,count,created_date]
+  }
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [

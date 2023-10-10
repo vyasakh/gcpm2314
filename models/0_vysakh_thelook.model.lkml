@@ -2,16 +2,25 @@ connection: "thelook"
 
 # include all the views
 include: "/views/**/*.view.lkml"
+include: "/te.dashboard.lookml"
 
 datagroup: 0_vysakh_thelook_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
 }
+explore: geolite_city_location {}
+# persist_with: 0_vysakh_thelook_default_datagroup
 
-persist_with: 0_vysakh_thelook_default_datagroup
+access_grant: drishya {
+  user_attribute: test1
+  allowed_values: ["see"]
+}
+access_grant: ragha {
+  user_attribute: test2
+  allowed_values: ["see"]
+}
 
-
-
+explore: users {}
 explore: dept {}
 
 explore: employees {}
@@ -24,9 +33,36 @@ explore: events {
   }
 }
 
+explore: flight_der {
+  join: orders_der {
+   type: left_outer
+    sql_on: ${orders_der.id} = ${flight_der.id} ;;
+   relationship: many_to_one
+ }
+  join: users_der {
+    type: left_outer
+     sql_on: ${orders_der.id} = ${users_der.id} ;;
+    relationship: many_to_one
+  }
+}
+explore:users_der {
 
+}
 
-explore: flights {}
+explore: fligh_dupe {
+  from: flights
+  view_name: flights
+  join: orders {
+    type: left_outer
+    sql_on: ${orders.user_id} = ${flights.id2} ;;
+    relationship: many_to_one
+  }
+  join: users {
+    type: left_outer
+    sql_on: ${orders.user_id} = ${users.id} ;;
+    relationship: many_to_one
+  }
+}
 
 explore: human {}
 
@@ -90,4 +126,4 @@ explore: salary {
 }
 
 
-explore: users {}
+# explore: users {}

@@ -28,6 +28,32 @@ view: users {
     map_layer_name: countries
     sql: ${TABLE}.country ;;
   }
+
+  dimension: countylo {
+
+    type: string
+    map_layer_name: us_counties_fips
+    sql: ${city} ;;
+  }
+
+  dimension: statelo {
+
+    type: string
+    map_layer_name: us_states
+    sql: ${state} ;;
+  }
+
+  dimension: citylo {
+
+    type: string
+    map_layer_name: us_counties_fips
+    sql: ${zip} ;;
+  }
+  measure: ageavg {
+    type: average
+    sql: ${age} ;;
+  }
+
   dimension_group: created {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
@@ -57,9 +83,32 @@ view: users {
     type: zipcode
     sql: ${TABLE}.zip ;;
   }
+
   measure: count {
     type: count
     drill_fields: [detail*]
+  }
+  dimension: ticket_sign {
+    hidden: yes
+    type: number
+    sql: CASE
+      WHEN ${country} = 'USA' AND ${state} LIKE 'Alaba%' THEN 1
+      WHEN ${state} = 'lowa' AND ${id}=10 THEN -1
+      ELSE 0
+      END ;;
+  }
+
+  dimension: if_holds {
+    #hidden:  yes
+    type: yesno
+    sql: ${state} = 'Alaska' ;;
+  }
+  measure: ticket_holds {
+    type: sum
+    sql:CASE
+      WHEN ${users.if_holds} THEN ${ticket_sign}
+      ELSE 0
+      END ;;
   }
 
   # ----- Sets of fields for drilling ------

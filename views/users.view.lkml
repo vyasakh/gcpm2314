@@ -67,6 +67,11 @@ view: users {
     type: string
     sql: ${TABLE}.first_name ;;
   }
+  measure: first_name_measure {
+    label: "first name"
+    type: string
+    sql: ${first_name} ;;
+  }
   dimension: gender {
     type: string
     sql: ${TABLE}.gender ;;

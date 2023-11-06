@@ -123,7 +123,8 @@ explore: salary {
     sql_on: ${salary.dept_id} = ${dept.dept_id} ;;
     relationship: many_to_one
   }
+
 }
 
 
-# explore: users {}
+explore: flights {}

@@ -11,6 +11,14 @@ view: users {
     type: number
     sql: ${TABLE}.age ;;
   }
+
+  dimension: age_tier {
+    type: tier
+    tiers: [0,10,20,30,40,50,60,70,80]
+    style: integer
+    sql: ${age} ;;
+  }
+
   dimension: city {
     type: string
     sql: ${TABLE}.city ;;
@@ -58,6 +66,11 @@ view: users {
   dimension: first_name {
     type: string
     sql: ${TABLE}.first_name ;;
+  }
+  measure: first_name_measure {
+    label: "first name"
+    type: string
+    sql: ${first_name} ;;
   }
   dimension: gender {
     type: string

@@ -4,7 +4,7 @@ connection: "thelook"
 include: "/views/**/*.view.lkml"
 
 datagroup: 0_vysakh_thelook_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
+  # sql_trigger: SELECT MAX(id) FROM etl_logghj;;
   max_cache_age: "1 hour"
 }
 

@@ -26,8 +26,7 @@ view: users {
   dimension: long_string{
     type: string
     sql: concat(${city}," fghjklkgfdsdfghjk.   ",${country}, "sdfghjkliuytrsdvb" ,${age} , "fghjkloiuytresdvb" ,${last_name}, " dfghjkl;lokiujytrsxcvbnm" ,${gender},"  trewsdfghjkl;lkiuytrd  " ,${first_name} , "dfghjkl" ,${email}) ;;
-
-  }
+    }
   dimension: country {
     type: string
     map_layer_name: countries

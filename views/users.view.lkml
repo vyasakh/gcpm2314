@@ -23,6 +23,10 @@ view: users {
     type: string
     sql: ${TABLE}.city ;;
   }
+  dimension: long_string{
+    type: string
+    sql: concat(${city}," fghjklkgfdsdfghjk.   ",${country}, "sdfghjkliuytrsdvb" ,${age} , "fghjkloiuytresdvb" ,${last_name}, " dfghjkl;lokiujytrsxcvbnm" ,${gender},"  trewsdfghjkl;lkiuytrd  " ,${first_name} , "dfghjkl" ,${email}) ;;
+    }
   dimension: country {
     type: string
     map_layer_name: countries
@@ -66,6 +70,11 @@ view: users {
   dimension: first_name {
     type: string
     sql: ${TABLE}.first_name ;;
+  }
+  measure: first_name_measure {
+    label: "first name"
+    type: string
+    sql: ${first_name} ;;
   }
   dimension: gender {
     type: string

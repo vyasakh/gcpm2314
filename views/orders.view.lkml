@@ -2,6 +2,17 @@ view: orders {
   sql_table_name: demo_db.orders ;;
   drill_fields: [id]
 
+  filter: filter {
+    suggest_dimension: status
+    type: string
+
+    default_value: "Complete"
+  }
+  filter: filter2 {
+    suggest_dimension: status
+    sql:  status = 'Complete';;
+    default_value: "Complete"
+  }
   dimension: id {
     primary_key: yes
     type: number

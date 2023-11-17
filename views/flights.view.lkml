@@ -107,6 +107,17 @@ view: flights {
           <li><b>Sub 2:</b>{{t4._value}}</li></ul>
           &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{t5._value}};;
   }
+
+  measure: testt {
+    type: number
+    sql: ${taxi_in} ;;
+    html: {% if (taxi_in._value < 23) %}
+      <p style="background-color: #d7d7d7;"> <b>({{taxi_in._value |times: -100|round:1}}%)</b></p>
+      {% else %}
+    <p>{{taxi_in._value|times: 100|round:1}}%</p>
+    {% endif %} ;;
+  }
+
   set: detail {
     fields: [distance,arr_date,destination,origin,count]
   }

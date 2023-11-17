@@ -6,7 +6,7 @@ include: "/te.dashboard.lookml"
 include: "/Map_dashboard.dashboard.lookml"
 
 datagroup: 0_vysakh_thelook_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
+  # sql_trigger: SELECT MAX(id) FROM etl_logghj;;
   max_cache_age: "1 hour"
 }
 explore: geolite_city_location {}
@@ -124,7 +124,8 @@ explore: salary {
     sql_on: ${salary.dept_id} = ${dept.dept_id} ;;
     relationship: many_to_one
   }
+
 }
 
 
-# explore: users {}
+explore: flights {}

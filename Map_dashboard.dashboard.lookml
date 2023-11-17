@@ -1,5 +1,5 @@
-- dashboard: map__udd
-  title: Map - UDD
+- dashboard: Map_dashboard
+  title: Map_dashboard
   layout: newspaper
   preferred_viewer: dashboards-next
   preferred_slug: tNZTGiX5aIRpxe1S3Ewd4e

@@ -26,6 +26,14 @@ view: orders {
     type: count
     value_format: "$0.00"
     drill_fields: [drill_issue*]
+    html:
+    {% if orders.status == "COMPLETED" %}
+    <p style="color: red; font-size: 50%">{{ rendered_value }}</p>
+    {% elsif orders.status == "PENDING" %}
+    <p style="color: blue; font-size:80%">{{ rendered_value }}</p>
+    {% else %}
+    <p style="color: black; font-size:100%">{{ rendered_value }}</p>
+    {% endif %};;
   }
 
   measure: ticket_holds {
